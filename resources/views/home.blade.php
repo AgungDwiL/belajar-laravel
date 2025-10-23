@@ -23,39 +23,8 @@
     <section class="features container">
         <h1>Features</h1>
         <h2>Brand - Categories</h2>
-        <div class="feature-grid">
-            <div class="feature-item">
-                <div class="feature-product">
-                    <img src="{{ asset('images\Product\Control Valve.png') }}" alt="Control Valve">
-                </div>
-                <p>Control Valve</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-product">
-                    <img src="{{ asset('images\Product\Fitting.png') }}" alt="Fitting">
-                </div>
-                <p>Fitting</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-product">
-                    <img src="{{ asset('images\Product\Tube.png') }}" alt="Tube">
-                </div>
-                <p>Tube</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-product">
-                    <img src="{{ asset('images\Product\Vacuum Generator, Unitasking.png') }}" alt="Vacuum Generator, Unitasking">
-                </div>
-                <p>Vacuum Generator, Unitasking</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-product">
-                    <img src="{{ asset('images\Product\Valve.png') }}" alt="Valve">
-                </div>
-                <p>Valve</p>
-            </div>
-        </div>
-        <button class="view-more">View More</button>
+        @include('partials.product-container')
+        <button class="view-more"> <a href="\products" style="text-decoration:none; color:white"> More </a></button>
     </section>
 
     <!-- Footer -->
