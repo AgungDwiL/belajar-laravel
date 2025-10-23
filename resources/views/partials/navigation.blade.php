@@ -5,9 +5,9 @@
         </div>
         <div class="navigation">
             <ul class="nav-links">
-                <li><a class="nav-link" href="/">Home</a></li>
-                <li><a class="nav-link" href="{{url('products')}}">Products</a></li>
-                <li><a class="nav-link" href="{{url('add-products')}}">Add Products</a></li>
+                <li><a class="nav-link" style='{{request()->is('/')? "font-weight:bold":''}}' href="/">Home</a></li>
+                <li><a class="nav-link" style='{{request()->is('products')? "font-weight:bold":''}}' href="{{url('products')}}">Products</a></li>
+                <li><a class="nav-link" style='{{request()->is('add-products')? "font-weight:bold":''}}' href="{{url('add-products')}}">Add Products</a></li>
             </ul>
         </div>
         <div class="search-box">
