@@ -35,8 +35,8 @@
             <div class="footer-left">
                 <p>Looking for factory automation goods?</p>
                 <p>Visit our E-commerce</p>
-                <button class="btn-shop">Tokopedia</button>
-                <button class="btn-shop-icon"> <img src="{{ asset('images\Logo\tokopedia.png')}}"></button>
+                <button class="btn-shop"><a href="https://www.tokopedia.com/eternaks" style="text-decoration: none; color:white" target="_blank">Tokopedia</a></button>
+                <button class="btn-shop-icon"><a href="https://www.tokopedia.com/eternaks" target="_blank"><img src="{{ asset('images\Logo\tokopedia.png')}}"></a></button>
             </div>
 
             <!-- Right section: company info and contact -->
