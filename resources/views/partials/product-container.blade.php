@@ -3,32 +3,6 @@
     $products = postController::getProducts();
 @endphp
 
-{{-- <style>
-    .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-    }
-
-    .feature-product {
-        background: #bcccdc;
-        border-radius: 10px;
-        padding: 20px;
-        transition: 0.3s;
-        height: 200px;
-    }
-
-    .feature-product img {
-        max-width: 150px;
-        margin-bottom: 10px;
-    }
-
-    .feature-item:hover {
-        background: #e0ebff;
-    }
-</style> --}}
-
 <style>
 .feature-grid {
     display: grid;
