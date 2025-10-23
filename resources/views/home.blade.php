@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT Eterna Karya Sejahtera</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="container nav-content">
-            <div class="logo">
-                <img src="{{ asset('images/Logo/logo eterna.png') }}" alt="Eterna Logo">
-            </div>
-            <div class="search-box">
-                <input type="text" placeholder="Search by Keyword..">
-                <button><img src="{{ asset('images/Icon/search.png') }}" alt="Search" width="15"></button>
-            </div>
-        </div>
-    </header>
 
+@extends('layouts.app')
+
+@section('page-title', 'Home')
+
+@section('content')
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content container">
@@ -116,11 +99,8 @@
                 </div>
             </div>
         </div>
-
-        <!-- Bottom copyright -->
-        <div class="footer-bottom">
-            <p>Copyright © 2022 PT Eterna Karya Sejahtera</p>
-        </div>
     </footer>
+@endsection
+
 </body>
 </html>

@@ -30,6 +30,23 @@ body {
     align-items: center;
 }
 
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    opacity: 75%;
+}
+
 .logo {
     display: flex;
     align-items: center;
