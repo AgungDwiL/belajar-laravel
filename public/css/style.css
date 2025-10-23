@@ -1,0 +1,262 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    background-color: #F8FAFC;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Navbar */
+.navbar {
+    background: #F8FAFC;
+    padding: 10px 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.logo span {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-box input {
+    background-color: #F8FAFC;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    width: 200px;
+}
+
+.search-box button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Hero */
+.hero {
+    background-color: #F8FAFC;
+    padding: 10px 0;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.hero-image img {
+    max-width: 1050px;
+    width: 100%;
+}
+
+/* Intro */
+.intro {
+    width: 650px;
+    text-align: center;
+    padding: 50px 0 30px;
+}
+
+.intro h1 {
+    font-weight: 600;
+    font-size: x-large;
+    color: #000000;
+}
+
+.intro p {
+    margin-top: 10px;
+    font-size: x-large;
+    color: #000000;
+}
+
+/* Features */
+.features {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.features h1 {
+    font-weight: 600;
+    font-size: x-large;
+    color: #000000;
+}
+
+.features h2 {
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: x-large;
+    color: #000000;
+}
+
+.features p {
+    margin-top: 20px;
+    font-size: large;
+    color: #000000;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.feature-product {
+    background: #bcccdc;
+    border-radius: 10px;
+    padding: 20px;
+    transition: 0.3s;
+    height: 200px;
+}
+
+.feature-product img {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.feature-item:hover {
+    background: #e0ebff;
+}
+
+.view-more {
+    background-color: #aab4bf;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: x-large;
+}
+
+.view-more:hover {
+    background-color: #345fd6;
+}
+
+/* Footer */
+footer {
+    background: #F8FAFC;
+    padding-top: 40px;
+    font-size: 16px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-left, .footer-right {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-address, .footer-contact {
+    flex:1;
+    min-width: 220px;
+}
+
+.footer-left .btn-shop {
+    border: none;
+    background: #393e46;
+    color: #ffffff;
+    border-radius: 25px;
+    padding: 8px 10px;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.footer-left .btn-shop:hover {
+    background-color: #345fd6;
+}
+
+.footer-left .btn-shop-icon {
+    border: #ffffff;
+    background: #393e46;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 2px 4px;
+    margin-left: 150px;
+    text-decoration: none;
+}
+
+.footer-left .btn-shop-icon img {
+    height: 40px;
+    filter: invert(1);
+}
+
+.footer-left .btn-shop-icon:hover {
+    background-color: #345fd6;
+}
+
+.footer-contact a {
+  text-decoration: none;  
+  color: #000000;             
+}
+
+.socialmedia-content {
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.socialmedia-content img {
+    width: 28px;
+    transition: 0.3s;
+}
+
+.socialmedia-content a:hover{
+    opacity: 75%;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #fff;
+    padding: 15px 0;
+    background: #9aa6b2;
+    margin-top: 30px;
+}
