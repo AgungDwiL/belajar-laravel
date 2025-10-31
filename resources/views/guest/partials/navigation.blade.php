@@ -11,7 +11,7 @@
             <ul class="nav-links">
                 <li><a class="nav-link" style='{{request()->is('/')? "font-weight:bold":''}}' href="/">Home</a></li>
                 <li><a class="nav-link" style='{{request()->is('products')? "font-weight:bold":''}}' href="{{url('products')}}">Products</a></li>
-                <li><a class="nav-link" href="#">Login</a></li>
+                <li><a class="nav-link" href="login">Login</a></li>
             </ul>
         </div>
     </div>

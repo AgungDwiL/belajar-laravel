@@ -38,9 +38,9 @@
     @foreach ($products as $product)
     <div class="feature-item">
         <div class="feature-product">
-            <img src="{{ asset('images/Product/' . $product->product_img_url) }}" alt="{{ $product->product_name }}">
+            <img src="{{ asset('images/Product/' . $product->img) }}" alt="{{ $product->name }}">
         </div>
-        <p>{{$product->product_name}}</p>
+        <p>{{$product->name}}</p>
     </div>    
     @endforeach
 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -9,8 +10,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = DB::table('products')->orderBy('id', 'desc')->get();
-        return view('products', compact('products'));
+        $products = Product::orderBy('id', 'desc')->get();
+        return view('guest.products', compact('products'));
     }
 
     public function create()
