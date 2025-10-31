@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
-    return view('home');
+    return view('guest.home');
 });
 
 Route::get('/add-products', function () {

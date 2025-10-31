@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('guest.layouts.app')
 
 @section('page-title', 'Home')
 
@@ -23,7 +23,7 @@
     <section class="features container">
         <h1>Features</h1>
         <h2>Brand - Categories</h2>
-        @include('partials.product-container')
+        @include('guest.partials.product-container')
         <button class="view-more"> <a href="\products" style="text-decoration:none; color:white"> More </a></button>
     </section>
 

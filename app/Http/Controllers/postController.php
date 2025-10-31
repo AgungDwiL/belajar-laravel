@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
-class postController extends Controller
+class PostController extends Controller
 {
     public static function getProducts() {
         return DB::table('products')->get();
