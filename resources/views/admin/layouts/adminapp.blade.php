@@ -41,7 +41,7 @@
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
                     <ul class="nav flex-column mt-3">
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->is('admin/dashboard*') ? 'active' : '' }}" href="/admin/dashboard">Dashboard</a>
+                            <a class="nav-link {{ request()->is('admin') ? 'active' : '' }}" href="/admin/dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->is('admin/products*') ? 'active' : '' }}" href="/admin/products">Products Index</a>

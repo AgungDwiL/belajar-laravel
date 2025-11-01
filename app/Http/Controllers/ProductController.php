@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('id', 'desc')->get();
-        return view('guest.products', compact('products'));
+        return view('admin.products.indexproducts', compact('products'));
     }
 
     public function create()
@@ -38,6 +38,12 @@ class ProductController extends Controller
         ]);
 
         return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan!');
+    }
+
+    public function show()
+    {
+        $products = Product::orderBy('id', 'desc')->get();
+        return view('guest.products', compact('products'));
     }
 }
 
