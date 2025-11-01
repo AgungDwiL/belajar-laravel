@@ -72,6 +72,21 @@ class ProductController extends Controller
         return redirect('/admin/products')->with('success', 'Product updated successfully');
     }
 
+    public function destroy($id){
+        $product = Product::findOrFail($id);
+
+        // Hapus gambar produk
+        if ($product->img && file_exists(public_path('images/Product/' . $product->img))) {
+            unlink(public_path('images/Product/' . $product->img));
+            }
+
+        // Hapus data produk
+        $product->delete();
+
+        // Return
+        return redirect('/admin/products')->with('success', 'Produk berhasil dihapus');
+    }
+
     // Fungsi untuk Guest
     public function show()
     {

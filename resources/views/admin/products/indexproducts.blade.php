@@ -37,9 +37,18 @@
                 </td>
                 <td>
                     <a class="btn btn-sm btn-primary text-decoration-none" href="/admin/product/edit/{{ $product->id }}">Edit</a>
-                    <a class="btn btn-sm btn-danger text-decoration-none" href="#">Delete</a>
+                    <button type="button" data-toggle="modal" data-target="#modal-delete-product" class="btn btn-sm btn-danger">Delete</button>
                 </td>
             </tr>
+
+            {{-- include modal --}}
+            @include('admin.partials.modalDelete', [
+                'modal_id'      => 'modal-delete-product',
+                'modal_title'   => 'Are you sure want to delete this product?',
+                'modal_body'    => 'This will delete product permanently. You can not undo this action.',
+                'modal_href'    => '/admin/product/delete/'.$product->id
+            ])
+            
             @endforeach
         </tbody>
     </table>
