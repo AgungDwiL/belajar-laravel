@@ -16,7 +16,9 @@ class RequestProductValidated extends FormRequest
         return [
             'productName'   => 'required|max:255',
             'idBrand'       => 'required',
-            'productImage'  => 'required|image|mimes:jpg,jpeg,png|max:2048'
+            'productImage'  => $this->isMethod('post')
+                        ? 'required|image|mimes:jpg,jpeg,png|max:2048'
+                        : 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ];
     }
 }

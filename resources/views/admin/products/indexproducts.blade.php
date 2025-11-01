@@ -2,6 +2,7 @@
 @section('page-title', 'Products Index')
 
 @section('content')
+
     @if (session('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('success') }}
@@ -35,7 +36,7 @@
                     <img src="{{ asset('images/Product/'. ($product->img ))}}" alt="{{ $product->name }}" style="width: 60px">
                 </td>
                 <td>
-                    <a class="btn btn-sm btn-primary text-decoration-none" href="#">Edit</a>
+                    <a class="btn btn-sm btn-primary text-decoration-none" href="/admin/product/edit/{{ $product->id }}">Edit</a>
                     <a class="btn btn-sm btn-danger text-decoration-none" href="#">Delete</a>
                 </td>
             </tr>

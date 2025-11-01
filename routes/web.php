@@ -19,7 +19,8 @@ Route::prefix('admin')->group(function(){
     Route::get('products', 'ProductController@index');
     Route::get('product/create', 'ProductController@create');
     Route::post('product/store', 'ProductController@store');
-    Route::get('product/edit', 'ProductController@edit');
+    Route::get('product/edit/{id}', 'ProductController@edit');
+    Route::patch('product/update/{id}', 'ProductController@update');
     // route lainnya di sini
 
 

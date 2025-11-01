@@ -39,10 +39,38 @@ class ProductController extends Controller
         return redirect('/admin/products')->with('success', 'The product has been added!');
     }
 
-    public function edit(){
-        
+    public function edit($id){
+
+        $product = Product::findOrFail($id);
+        $brands  = Brand::get();
+
+        return view('admin.products.editproduct', compact('brands', 'product'));
     }
 
+    public function update(RequestProductValidated $request, $id) {
+        $product = Product::findOrFail($id);
+
+        // if uploaded new product image
+        if ($request->hasFile('img')){
+            if ($product->img && file_exists(public_path('images/Product/' . $product->img))) {
+            unlink(public_path('images/Product/' . $product->img));
+            }
+
+        $file = $request->file('img');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('images/Product'), $filename);
+        
+        $product->img       = $filename;
+        }
+
+        $product->name      = $request->productName;
+        $product->brand_id  = $request->idBrand;
+        
+
+        $product->save();
+
+        return redirect('/admin/products')->with('success', 'Product updated successfully');
+    }
 
     // Fungsi untuk Guest
     public function show()
