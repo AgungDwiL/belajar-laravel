@@ -17,6 +17,9 @@ Route::get('/add-products', function () {
 Route::prefix('admin')->group(function(){
     Route::view('','admin.dashboard')->name('admin-dashboard');
     Route::get('products', 'ProductController@index');
+    Route::get('product/create', 'ProductController@create');
+    Route::post('product/store', 'ProductController@store');
+    Route::get('product/edit', 'ProductController@edit');
     // route lainnya di sini
 
 
@@ -25,5 +28,3 @@ Route::prefix('admin')->group(function(){
         return redirect()->route('admin-dashboard');   
     });
 });
-Route::get('/add-products', [ProductController::class, 'create'])->name('products.create');
-Route::post('/add-products', [ProductController::class, 'store'])->name('products.store');

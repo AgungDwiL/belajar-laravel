@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
+use App\Http\Requests\RequestProductValidated;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+    // Fungsi untuk admin 
     public function index()
     {
         $products = Product::orderBy('id', 'desc')->get();
@@ -16,30 +19,32 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('add-products');
+        $brands = Brand::get();
+        return view('admin.products.editproduct', compact('brands'));
     }
 
-    public function store(Request $request)
+    public function store(RequestProductValidated $request)
     {
-        $request->validate([
-            'product_name' => 'required|string|max:255',
-            'product_img' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
-
         // simpan gambar ke folder public/images/Product
-        $imageName = time() . '_' . $request->file('product_img')->getClientOriginalName();
-        $request->file('product_img')->move(public_path('images/Product'), $imageName);
+        $imageName = time() . '_' . $request->file('productImage')->getClientOriginalName();
+        $request->file('productImage')->move(public_path('images/Product'), $imageName);
 
         // masukkan data ke database
-        DB::table('products')->insert([
-            'product_name' => $request->product_name,
-            'product_img_url' => $imageName,
-            'time_modified' => now(),
+        Product::create([
+            'name'      => $request->productName,
+            'brand_id'  => $request->idBrand,
+            'img'       => $imageName
         ]);
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan!');
+        return redirect('/admin/products')->with('success', 'The product has been added!');
     }
 
+    public function edit(){
+        
+    }
+
+
+    // Fungsi untuk Guest
     public function show()
     {
         $products = Product::orderBy('id', 'desc')->get();
