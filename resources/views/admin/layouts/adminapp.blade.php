@@ -44,6 +44,9 @@
                             <a class="nav-link {{ request()->is('admin') ? 'active' : '' }}" href="/admin/dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link {{ request()->is('admin/brands*') ? 'active' : '' }}" href="/admin/brands">Brands Index</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {{ request()->is('admin/products*') ? 'active' : '' }}" href="/admin/products">Products Index</a>
                         </li>
                         <li class="nav-item">

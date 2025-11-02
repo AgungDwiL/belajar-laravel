@@ -74,10 +74,12 @@
 
 @endsection
 
-{{-- include modal --}}
-@include('admin.partials.modalDelete', [
-    'modal_id'      => 'modal-delete-product',
-    'modal_title'   => 'Are you sure want to delete this product?',
-    'modal_body'    => 'This will delete product permanently. You can not undo this action.',
-    'modal_href'    => '/admin/product/delete/'.$product->id
-])
+@if($is_edit)
+    {{-- include modal --}}
+    @include('admin.partials.modalDelete', [
+        'modal_id'      => 'modal-delete-product',
+        'modal_title'   => 'Are you sure want to delete this product?',
+        'modal_body'    => 'This will delete product permanently. You can not undo this action.',
+        'modal_href'    => '/admin/product/delete/'.$product->id
+    ])
+@endif

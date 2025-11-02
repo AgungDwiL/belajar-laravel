@@ -22,6 +22,13 @@ Route::prefix('admin')->group(function(){
     Route::get('product/edit/{id}', 'ProductController@edit');
     Route::patch('product/update/{id}', 'ProductController@update');
     Route::delete('product/delete/{id}', 'ProductController@destroy');
+
+    Route::get('brands', 'BrandController@index');
+    Route::get('brand/create', 'BrandController@create');
+    Route::post('brand/store', 'BrandController@store');
+    Route::get('brand/edit/{id}', 'BrandController@edit');
+    Route::patch('brand/update/{id}', 'BrandController@update');
+    Route::delete('brand/delete/{id}', 'BrandController@destroy');
     // route lainnya di sini
 
 
