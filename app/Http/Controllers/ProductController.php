@@ -51,12 +51,12 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         // if uploaded new product image
-        if ($request->hasFile('img')){
+        if ($request->hasFile('productImage')){
             if ($product->img && file_exists(public_path('images/Product/' . $product->img))) {
             unlink(public_path('images/Product/' . $product->img));
             }
 
-        $file = $request->file('img');
+        $file = $request->file('productImage');
         $filename = time() . '_' . $file->getClientOriginalName();
         $file->move(public_path('images/Product'), $filename);
         

@@ -44,9 +44,9 @@
             {{-- include modal --}}
             @include('admin.partials.modalDelete', [
                 'modal_id'      => 'modal-delete-brand',
-                'modal_title'   => 'Are you sure want to delete this product?',
-                'modal_body'    => 'This will delete product permanently. You can not undo this action.',
-                'modal_href'    => '/admin/product/delete/'.$brand->id
+                'modal_title'   => 'Are you sure want to delete this brand?',
+                'modal_body'    => 'This will delete brand and all its products permanently. You can not undo this action.',
+                'modal_href'    => '/admin/brand/delete/'.$brand->id
             ])
             
             @endforeach

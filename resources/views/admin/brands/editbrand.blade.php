@@ -33,7 +33,7 @@
                         <div class="mb-4">
                             <label class="form-label font-weight-bold">Current Brand Logo</label>
                             <br>
-                            <img src="{{ asset('images/Brand/' . $brand->img) }}" alt="Brand Logo" width="150" class="border shadow p-3 d-block mx-auto">
+                            <img src="{{ asset('images/Brand/' . $brand->logo) }}" alt="Brand Logo" width="150" class="border shadow p-3 d-block mx-auto">
                         </div>
                     @endif
                     <div class="form-group mb-4">

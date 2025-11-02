@@ -21,7 +21,7 @@ class BrandController extends Controller
 
     public function store(RequestBrandValidated $request)
     {
-        // simpan gambar ke folder public/images/Product
+        // simpan gambar ke folder public/images/Brand
         $imageName = time() . '_' . $request->file('brandImage')->getClientOriginalName();
         $request->file('brandImage')->move(public_path('images/Brand'), $imageName);
 
@@ -34,38 +34,36 @@ class BrandController extends Controller
         return redirect('/admin/brands')->with('success', 'The new brand has been added!');
     }
 
-    // public function edit($id){
+    public function edit($id){
 
-    //     $product = Product::findOrFail($id);
-    //     $brands  = Brand::get();
+        $brand = Brand::findOrFail($id);
 
-    //     return view('admin.products.editproduct', compact('brands', 'product'));
-    // }
+        return view('admin.brands.editbrand', compact('brand'));
+    }
 
-    // public function update(RequestProductValidated $request, $id) {
-    //     $product = Product::findOrFail($id);
+    public function update(RequestBrandValidated $request, $id) {
+        $brand = Brand::findOrFail($id);
 
-    //     // if uploaded new product image
-    //     if ($request->hasFile('img')){
-    //         if ($product->img && file_exists(public_path('images/Product/' . $product->img))) {
-    //         unlink(public_path('images/Product/' . $product->img));
-    //         }
+        // if uploaded new brand logo
+        if ($request->hasFile('brandImage')){
+            // dd('true');
+            if ($brand->logo && file_exists(public_path('images/Brand/' . $brand->logo))) {
+            unlink(public_path('images/Brand/' . $brand->logo));
+            }
 
-    //     $file = $request->file('img');
-    //     $filename = time() . '_' . $file->getClientOriginalName();
-    //     $file->move(public_path('images/Product'), $filename);
+        $file = $request->file('brandImage');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('images/Brand'), $filename);
         
-    //     $product->img       = $filename;
-    //     }
+        $brand->logo       = $filename;
+        }
 
-    //     $product->name      = $request->productName;
-    //     $product->brand_id  = $request->idBrand;
-        
+        $brand->name      = $request->brandName;
 
-    //     $product->save();
+        $brand->save();
 
-    //     return redirect('/admin/products')->with('success', 'Product updated successfully');
-    // }
+        return redirect('/admin/brands')->with('success', 'Brand updated successfully');
+    }
 
     // public function destroy($id){
     //     $product = Product::findOrFail($id);
