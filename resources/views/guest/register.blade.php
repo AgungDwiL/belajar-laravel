@@ -23,22 +23,30 @@
                 <p>REGISTER</p>
             </div>
             
-            <form action="/" method="POST" class="login-form" id="loginForm" novalidate>
+            <form action="/register" method="POST" class="login-form" id="loginForm">
                 @csrf
                 <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" value="{{ old('name') }}">
+                    @error('name')
+                        <p style="font-size: 12px; color: red;">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
-                    <span class="error-message" id="usernameError"></span>
+                    <input type="text" id="username" name="username" value="{{ old('username') }}">
+                    @error('username')
+                        <p style="font-size: 12px; color: red;">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <div class="password-wrapper">
-                        <input type="password" id="password" name="password" required autocomplete="current-password">
-                        <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
-                        </button>
-                    </div>
-                    <span class="error-message" id="passwordError"></span>
+                    <input type="password" id="password" name="password">
+                    @error('password')
+                        <p style="font-size: 12px; color: red;">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <button type="submit" class="login-btn">

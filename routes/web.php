@@ -2,16 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 // Guest page
-Route::view('/', ('guest.home'));
-Route::view('/login', 'guest.login');
-Route::view('/register', 'guest.register');
+Route::view('/', 'guest.home');
+Route::view('/register', 'guest.register')->middleware('guest');
+Route::post('/register', 'UserController@register');
+Route::view('/login', 'guest.login')->middleware('guest');
+Route::post('/authenticate', 'UserController@authenticate');
+Route::post('/logout', 'UserController@logout');
+
 Route::get('/products', 'ProductController@show');
 
-Route::get('/add-products', function () {
-    return view('add-products');
-});
 
 // Admin page
 Route::prefix('admin')->group(function(){

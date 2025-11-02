@@ -21,27 +21,35 @@
                 <p>LOGIN</p>
             </div>
             
-            <form action="/" method="POST" class="login-form" id="loginForm" novalidate>
+            <form action="/authenticate" method="POST" class="login-form" id="loginForm">
                 @csrf
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
-                    <span class="error-message" id="usernameError"></span>
+                    <input type="text" id="username" name="username" value="{{ old('username') }}" autofocus>
+                    @error('username')
+                        <p style="font-size: 12px; color: red;">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
                     <div class="password-wrapper">
-                        <input type="password" id="password" name="password" required autocomplete="current-password">
-                        <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
-                        </button>
+                        <input type="password" id="password" name="password">
+                        <button type="button" class="password-toggle" id="passwordToggle"></button>
                     </div>
-                    <span class="error-message" id="passwordError"></span>
+                    @error('password')
+                            <p style="font-size: 12px; color: red;">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <button type="submit" class="login-btn">
                     <span class="btn-text">Sign In</span>
                 </button>
+                @if (session()->has('error'))
+                    <p style="font-size: 14px; color: red; text-align: center;">
+                        {{ session('error') }}
+                    </p>
+                @endif
             </form>
             <br>
             <p>Don't have an account yet?</p>

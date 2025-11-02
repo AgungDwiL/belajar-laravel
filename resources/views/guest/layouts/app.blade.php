@@ -15,4 +15,6 @@
         <p>Copyright © 2022 PT Eterna Karya Sejahtera</p>
     </div>
 </body>
+
+    <script src="{{ asset('js/user.js') }}"></script>
 </html>
