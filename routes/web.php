@@ -16,7 +16,7 @@ Route::get('/products', 'ProductController@show');
 
 
 // Admin page
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->middleware('isAdmin')->group(function(){
     Route::view('','admin.dashboard')->name('admin-dashboard');
     Route::get('products', 'ProductController@index');
     Route::get('product/create', 'ProductController@create');
@@ -32,7 +32,6 @@ Route::prefix('admin')->group(function(){
     Route::patch('brand/update/{id}', 'BrandController@update');
     Route::delete('brand/delete/{id}', 'BrandController@destroy');
     // route lainnya di sini
-
 
     //redirect all page invalid to dashboard
     Route::fallback(function(){

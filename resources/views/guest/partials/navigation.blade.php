@@ -26,7 +26,7 @@
                             <li style="list-style : none">
                                 <a class="dropdown-item" href="logout"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Logout
+                                    Sign Out
                                 </a>
                                 <form id="logout-form" action="logout" method="POST" style="display: none;">
                                     @csrf

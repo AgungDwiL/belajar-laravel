@@ -30,7 +30,10 @@
                     <span class="ml-1">Username</span>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Sign Out</a>
+                    <a class="dropdown-item" href="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign Out</a>
+                    <form id="logout-form" action="logout" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </div>
         </nav>
