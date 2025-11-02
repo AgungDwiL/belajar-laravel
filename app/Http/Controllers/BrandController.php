@@ -65,18 +65,18 @@ class BrandController extends Controller
         return redirect('/admin/brands')->with('success', 'Brand updated successfully');
     }
 
-    // public function destroy($id){
-    //     $product = Product::findOrFail($id);
+    public function destroy($id){
+        $brand = Brand::findOrFail($id);
 
-    //     // Hapus gambar produk
-    //     if ($product->img && file_exists(public_path('images/Product/' . $product->img))) {
-    //         unlink(public_path('images/Product/' . $product->img));
-    //         }
+        // Hapus gambar produk
+        if ($brand->logo && file_exists(public_path('images/Brand/' . $brand->logo))) {
+            unlink(public_path('images/Brand/' . $brand->logo));
+            }
 
-    //     // Hapus data produk
-    //     $product->delete();
+        // Hapus data produk
+        $brand->delete();
 
-    //     // Return
-    //     return redirect('/admin/products')->with('success', 'Produk berhasil dihapus');
-    // }
+        // Return
+        return redirect('/admin/brands')->with('success', 'Brand and all its products has been delete succesfully');
+    }
 }

@@ -37,19 +37,28 @@
                 </td>
                 <td>
                     <a class="btn btn-sm btn-primary text-decoration-none" href="/admin/product/edit/{{ $product->id }}">Edit</a>
-                    <button type="button" data-toggle="modal" data-target="#modal-delete-product" class="btn btn-sm btn-danger">Delete</button>
+                    <button type="button" data-id="{{ $product->id }}" data-toggle="modal" data-target="#modal-delete-product" class="btn btn-sm btn-danger">Delete</button>
                 </td>
             </tr>
-
-            {{-- include modal --}}
-            @include('admin.partials.modalDelete', [
-                'modal_id'      => 'modal-delete-product',
-                'modal_title'   => 'Are you sure want to delete this product?',
-                'modal_body'    => 'This will delete product permanently. You can not undo this action.',
-                'modal_href'    => '/admin/product/delete/'.$product->id
-            ])
-            
             @endforeach
         </tbody>
     </table>
+@endsection
+
+{{-- include modal --}}
+@include('admin.partials.modalDelete', [
+    'modal_id'      => 'modal-delete-product',
+    'modal_title'   => 'Are you sure want to delete this product?',
+    'modal_body'    => 'This will delete product permanently. You can not undo this action.',
+])
+
+@section('script')
+{{-- Script untuk modal --}}
+<script> $('#modal-delete-product').on('show.bs.modal', function (event) {
+     const button = $(event.relatedTarget);
+     const id = button.data('id');
+     const modal = $(this); 
+     
+     modal.find('#modal_href').attr('action', '/admin/product/delete/' + id); }); 
+</script>
 @endsection

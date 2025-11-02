@@ -12,7 +12,7 @@
         {{ $modal_body }}
       </div>
       <div class="modal-footer">
-        <form action="{{ $modal_href }}" method="POST">
+        <form id="modal_href" method="POST">
           @csrf
           @method('DELETE')
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

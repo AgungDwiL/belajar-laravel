@@ -74,7 +74,6 @@ class ProductController extends Controller
 
     public function destroy($id){
         $product = Product::findOrFail($id);
-
         // Hapus gambar produk
         if ($product->img && file_exists(public_path('images/Product/' . $product->img))) {
             unlink(public_path('images/Product/' . $product->img));
@@ -84,7 +83,7 @@ class ProductController extends Controller
         $product->delete();
 
         // Return
-        return redirect('/admin/products')->with('success', 'Produk berhasil dihapus');
+        return redirect('/admin/products')->with('success', 'The Product has been deleted successfully');
     }
 
     // Fungsi untuk Guest

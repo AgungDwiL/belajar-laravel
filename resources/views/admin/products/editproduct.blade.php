@@ -61,7 +61,7 @@
                     <div class="d-flex flex-row mt-5 justify-content-around">
                         @if($is_edit)
                             <button type="submit" class="btn btn-primary">Edit</button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-product">Delete</button>
+                            <button type="button" class="btn btn-danger" data-id="{{ $product->id }}" data-toggle="modal" data-target="#modal-delete-product">Delete</button>
                         @else
                             <button type="submit" class="btn btn-success">Create</button>
                         @endif
@@ -80,6 +80,16 @@
         'modal_id'      => 'modal-delete-product',
         'modal_title'   => 'Are you sure want to delete this product?',
         'modal_body'    => 'This will delete product permanently. You can not undo this action.',
-        'modal_href'    => '/admin/product/delete/'.$product->id
     ])
 @endif
+
+@section('script')
+{{-- Script untuk modal --}}
+<script> $('#modal-delete-product').on('show.bs.modal', function (event) {
+     const button = $(event.relatedTarget);
+     const id = button.data('id');
+     const modal = $(this); 
+     
+     modal.find('#modal_href').attr('action', '/admin/product/delete/' + id); }); 
+</script>
+@endsection
