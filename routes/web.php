@@ -31,7 +31,13 @@ Route::prefix('admin')->middleware('isAdmin')->group(function(){
     Route::get('brand/edit/{id}', 'BrandController@edit');
     Route::patch('brand/update/{id}', 'BrandController@update');
     Route::delete('brand/delete/{id}', 'BrandController@destroy');
-    // route lainnya di sini
+
+    Route::get('users', 'UserController@index');
+    Route::get('user/create', 'UserController@create');
+    Route::post('user/store', 'UserController@store');
+    Route::get('user/edit/{id}', 'UserController@edit');
+    Route::patch('user/update/{id}', 'UserController@update');
+    Route::delete('user/delete/{id}', 'UserController@destroy');
 
     //redirect all page invalid to dashboard
     Route::fallback(function(){
