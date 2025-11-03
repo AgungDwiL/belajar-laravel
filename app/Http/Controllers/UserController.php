@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use GuzzleHttp\Promise\Is;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationData;
+use PHPUnit\Framework\Constraint\IsEmpty;
+
+// use Illuminate\Validation\ValidationData;
 
 class UserController extends Controller
 {
@@ -90,30 +93,32 @@ class UserController extends Controller
         return view('admin.users.edituser', compact('user'));
     }
 
-    // public function update(RequestProductValidated $request, $id) {
-    //     $product = Product::findOrFail($id);
+    public function update(Request $request, $id) {
 
-    //     // if uploaded new product image
-    //     if ($request->hasFile('productImage')){
-    //         if ($product->img && file_exists(public_path('images/Product/' . $product->img))) {
-    //         unlink(public_path('images/Product/' . $product->img));
-    //         }
-
-    //     $file = $request->file('productImage');
-    //     $filename = time() . '_' . $file->getClientOriginalName();
-    //     $file->move(public_path('images/Product'), $filename);
+        $user= User::findOrFail($id);
         
-    //     $product->img       = $filename;
-    //     }
-
-    //     $product->name      = $request->productName;
-    //     $product->brand_id  = $request->idBrand;
+        // validasi input user
+        $validated = $request->validate([
+            'name'      => 'required|string',
+            'username'  => 'required|alpha_num|unique:\App\User,username,'.$user->id,
+            'password'  => 'nullable|string|min:8',
+            'role'      => 'nullable|string|in:admin,guest'
+        ]);
         
+        $user->name     = $validated['name'];
+        $user->username = $validated['username'];
+        
+        if(($validated['password']) !== null) {
+            $user->password = Hash::make($validated['password']);
+        }
+        if($user->role !== $validated['role']) {
+            $user->role = $validated['role'];
+        }
 
-    //     $product->save();
+        $user->save();
 
-    //     return redirect('/admin/products')->with('success', 'Product updated successfully');
-    // }
+        return redirect('/admin/users')->with('success', 'User updated successfully');
+    }
 
     // public function destroy($id){
     //     $product = Product::findOrFail($id);
