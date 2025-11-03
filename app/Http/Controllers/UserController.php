@@ -120,17 +120,13 @@ class UserController extends Controller
         return redirect('/admin/users')->with('success', 'User updated successfully');
     }
 
-    // public function destroy($id){
-    //     $product = Product::findOrFail($id);
-    //     // Hapus gambar produk
-    //     if ($product->img && file_exists(public_path('images/Product/' . $product->img))) {
-    //         unlink(public_path('images/Product/' . $product->img));
-    //         }
+    public function destroy($id){
+        $user = User::findOrFail($id);
 
-    //     // Hapus data produk
-    //     $product->delete();
+        // Hapus data user
+        $user->delete();
 
-    //     // Return
-    //     return redirect('/admin/products')->with('success', 'The Product has been deleted successfully');
-    // }
+        // Return
+        return redirect('/admin/users')->with('success', 'The Product has been deleted successfully');
+    }
 }
