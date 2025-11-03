@@ -35,7 +35,7 @@
                     <label for="password">Password</label>
                     <div class="password-wrapper">
                         <input type="password" id="password" name="password">
-                        <button type="button" class="password-toggle" id="passwordToggle"></button>
+                        {{-- <button type="button" class="password-toggle" id="passwordToggle"></button> --}}
                     </div>
                     @error('password')
                             <p style="font-size: 12px; color: red;">{{ $message }}</p>

@@ -74,7 +74,7 @@ class UserController extends Controller
         $new_user = $request->validate([
             'name'      => 'required|string',
             'username'  => 'required|unique:\App\User,username|alpha_num',
-            'password'  => 'required|string|min:8'
+            'password'  => 'required|string|min:6'
         ]);
 
         User::create([
@@ -101,7 +101,7 @@ class UserController extends Controller
         $validated = $request->validate([
             'name'      => 'required|string',
             'username'  => 'required|alpha_num|unique:\App\User,username,'.$user->id,
-            'password'  => 'nullable|string|min:8',
+            'password'  => 'nullable|string|min:6',
             'role'      => 'nullable|string|in:admin,guest'
         ]);
         

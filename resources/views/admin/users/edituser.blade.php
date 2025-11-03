@@ -107,7 +107,7 @@
                     <div class="d-flex flex-row mt-5 justify-content-around">
                         @if($is_edit)
                             <button type="submit" class="btn btn-primary">Edit</button>
-                            <button type="button" class="btn btn-danger" data-id="{{ $user->id }}" data-toggle="modal" data-target="#modal-delete-product">Delete</button>
+                            <button type="button" class="btn btn-danger" data-id="{{ $user->id }}" data-toggle="modal" data-target="#modal-delete-user">Delete</button>
                         @else
                             <button type="submit" class="btn btn-success">Create</button>
                         @endif
